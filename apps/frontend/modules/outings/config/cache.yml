@@ -1,0 +1,3 @@
+query:
+  enabled: on
+  lifetime: 300

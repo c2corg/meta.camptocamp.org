@@ -1,0 +1,19 @@
+# test data for regions
+Region:
+  1:
+    name: 'Mont Blanc - Beaufortain'
+    external_region_id: 17
+    system_id: 1
+  2:
+    name: 'Pyrénées centrales'
+    external_region_id: 81
+    system_id: 1
+  3:
+    name: 'GRAND PARADIS'
+    external_region_id: 27
+    system_id: 2
+  4:
+    name: 'MONT-BLANC'
+    external_region_id: 3
+    system_id: 2
+

@@ -1,0 +1,32 @@
+all:
+  auth:
+    clients:
+      1: 'c2c'
+      2: 'sngm'
+      3: 'skitour'
+    clientnames:
+      1: 'Camptocamp.org'
+      2: 'MontagneInfo.net'
+      3: 'Skitour.fr'
+    keys:
+      1: ''
+      2: ''
+      3: ''
+  facing:
+    values: [, 'N', 'NW', 'W', 'SW', 'S', 'SE', 'E', 'NE']
+  activities:
+    values: 
+      1: 'alpinisme'
+      2: 'canyon'
+      3: 'cascade de glace'
+      4: 'escalade'
+      5: 'haute-montagne'
+      6: 'hors-piste'
+      7: 'randonnée pedestre'
+      8: 'raquette'
+      9: 'rocher'
+      10: 'skirando'
+      11: 'surf'
+      12: 'via-ferrata'
+      13: 'VTT'
+  maxresults: 50 #nb max of result displayed by default

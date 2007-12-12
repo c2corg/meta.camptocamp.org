@@ -1,0 +1,5 @@
+all:
+  myConnection:
+    class: sfDoctrineDatabase
+    param:
+      dsn: pgsql://user:password@localhost:5432/metaengine

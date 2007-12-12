@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://meta.camptocamp.org" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://meta.camptocamp.org" elementFormDefault="qualified">
+    <xs:element name="outings">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="outing" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="name" type="string_100_restriction"/>
+                            <xs:element name="geom" type="xs:string" minOccurs="0"/>
+                            <xs:element name="elevation" type="xs:short" minOccurs="0"/>
+                            <xs:element name="date" type="xs:date"/>
+                            <xs:element name="lang" type="string_2_restriction"/>
+                            <xs:element name="activity" maxOccurs="unbounded"/>
+                            <xs:element name="rating" type="string_20_restriction" minOccurs="0"/>
+                            <xs:element name="facing" minOccurs="0"/>
+                            <xs:element name="original_outing_id" type="string_20_restriction"/>
+                            <xs:element name="url" type="xs:anyURI"/>
+                            <xs:element name="region_code" type="positive_int_region_restriction" minOccurs="0"/>
+                            <xs:element name="region_name" type="string_100_restriction" minOccurs="0"/>
+                            <xs:element name="status" type="xs:short" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="string_100_restriction">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string_2_restriction">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string_20_restriction">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="positive_int_8_restriction">
+        <xs:restriction base="xs:nonNegativeInteger">
+            <xs:maxInclusive value="8"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="positive_int_region_restriction">
+        <xs:restriction base="xs:nonNegativeInteger"/>
+    </xs:simpleType>
+</xs:schema>

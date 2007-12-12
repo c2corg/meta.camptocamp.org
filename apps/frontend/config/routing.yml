@@ -1,0 +1,14 @@
+homepage:
+  url:   /
+  param: { module: outings, action: query }
+
+default_index:
+  url:   /:module
+  param: { action: query }
+
+trailing:
+  url:   /:module/
+  param: { action: query }
+
+default:
+  url:   /:module/:action/*

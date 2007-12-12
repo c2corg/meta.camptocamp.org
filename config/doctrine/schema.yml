@@ -1,0 +1,47 @@
+Outing:
+  tableName: outings
+  columns:
+    name: 
+      type: string(100)                       # name of the outing
+      notnull: true
+    elevation: {type: integer(4)}             # optional, altitude max
+    date: 
+      type: timestamp                         # outing date
+      notnull: true
+    lang: {type: string(2)}                   # optional, 2 letters code for the language used for the outing text (ex : fr, en, it), based on ISO 639 "2 letters"
+    rating: {type: string(20)}                # optional, difficulty cotation
+    facing: {type: integer(4)}                # optional, main orientation of the outing, stored like c2corg
+    source_id: {type: integer(4)}             # partner code, arbitrary, defined internaly
+    original_outing_id: {type: string(20)}    # optional, outing id on the partner website
+    url: 
+      type: string(200)                       # URL to the details of the outing on the partner website
+      notnull: true
+    #region_code: {type: integer(4)}          # optional, region code linked to an outing, in the case the coordinate of the main summit are not specified
+    region_name: {type: string(100)}          # optional, region name linked to an outing, in the case neither the coordinate of the main summit nor the region code are specified
+    created_at: timestamp                     # automatically populated
+    updated_at: timestamp                     # automatically populated
+    # + geom
+
+Region:
+  tableName: regions
+  columns:
+    name: 
+      type: string(100)                       # title of the region on the partner website
+      notnull: true
+    external_region_id: {type: integer(4)}    # id of the region in the choosed system (c2c, sngm, ..)
+    system_id: 
+      type: string(4)                         # partner region system id
+      notnull: true
+    # + geom
+
+Outing_Region:
+  tableName: outings_regions
+  columns:
+    outing_id:                                # foreign key
+      foreignClass: Outing
+      foreignReference: id
+      counterpart: outing_id
+    region_id:                                # foreign key
+      foreignClass: Region
+      foreignReference: id
+      counterpart: region_id

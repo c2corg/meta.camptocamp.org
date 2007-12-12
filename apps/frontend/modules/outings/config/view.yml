@@ -1,0 +1,7 @@
+parseXmlSuccess:
+  http_metas:
+    content-type: text/xml
+
+querySuccess:
+  http_metas:
+    content-type: application/rss+xml
