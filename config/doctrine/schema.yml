@@ -2,7 +2,7 @@ Outing:
   tableName: outings
   columns:
     name: 
-      type: string(100)                       # name of the outing
+      type: string(150)                       # name of the outing
       notnull: true
     elevation: {type: integer(4)}             # optional, altitude max
     date: 

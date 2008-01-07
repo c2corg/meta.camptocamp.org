@@ -12,7 +12,7 @@ class BaseOuting extends sfDoctrineRecord
   {
     $this->setTableName('outings');
 
-    $this->hasColumn('name', 'string', 100, array (  'notnull' => true,));
+    $this->hasColumn('name', 'string', 150, array (  'notnull' => true,));
     $this->hasColumn('elevation', 'integer', 4, array ());
     $this->hasColumn('date', 'timestamp', null, array (  'notnull' => true,));
     $this->hasColumn('lang', 'string', 2, array ());

@@ -17,7 +17,7 @@ CREATE TABLE outings_regions(
 
 CREATE TABLE outings(
  id BIGSERIAL,
- name VARCHAR(100)
+ name VARCHAR(150)
 NOT NULL,
  elevation INT,
  date TIMESTAMP without time zone NOT NULL,
