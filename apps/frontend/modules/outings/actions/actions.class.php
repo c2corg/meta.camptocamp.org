@@ -260,7 +260,7 @@ class outingsActions extends sfActions
 
             // link
             $linkValue = $result['url'];
-            $item->addChild('link', $linkValue);            
+            $item->addChild('link', htmlspecialchars($linkValue));            
         }
         
         $this->rss = $xml->asXML();
