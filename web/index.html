@@ -7,7 +7,7 @@
 <meta name="description" content="Le méta-moteur montagne" />
 <meta name="keywords" content="montagne, skirando, alpinisme, escalade, cascade, rando, raquettes, VTT, canyon" />
 <meta name="language" content="fr" />
-<title>meta.camptocamp.org :: Accueil</title>
+<title>metacamptocamp.org :: Accueil</title>
 <link rel="alternate" type="application/rss+xml" title="Rss" href="http://www.camptocamp.org/articles/106519/fr/feed.rss" />    <link rel="search" type="application/opensearchdescription+xml" href="/static/opensearch/description.xml" title="Camptocamp.org" />
     <link rel="shortcut icon" href="http://www.camptocamp.org/static/images/favicon.ico" />
 <link rel="stylesheet" type="text/css" media="screen" href="http://www.camptocamp.org/static/css/main.css" />
@@ -23,53 +23,7 @@ h4
 </style>
 <script type="text/javascript" src="http://camptocamp.org/sfPrototypePlugin/js/prototype.js"></script>
 <script type="text/javascript" src="http://camptocamp.org/static/js/menus.js"></script>
-  <script language="JavaScript" type="text/javascript"><!--
-    function xGetElementsByClassName(clsName, parentEle, tagName, fn)
-    {
-      var found = new Array();
-      var re = new RegExp('\\b'+clsName+'\\b', 'i');
-      var list = xGetElementsByTagName(tagName, parentEle);
-      for (var i = 0; i < list.length; ++i) {
-        if (list[i].className.search(re) != -1) {
-          found[found.length] = list[i];
-          if (fn) fn(list[i]);
-        }
-      }
-      return found;
-    }
-    function xGetElementsByTagName(tagName, parentEle)
-    {
-      var list = null;
-      tagName = tagName || '*';
-      parentEle = parentEle || document;
-      if (parentEle.getElementsByTagName) {
-        list = parentEle.getElementsByTagName(tagName);
-      };
-      return list || new Array();
-    }
-    window.onload = function()
-    {
-      my_select = xGetElementsByClassName('sel_date', null, null);
-	  set_date();
-	}
-	
-    function set_date() {
-      if ((my_select[0].value != "00") && (my_select[1].value != "00") && (my_select[2].value != "0000")) {
-        my_select[6].value = my_select[2].value + "-" + my_select[1].value + "-" + my_select[0].value ;
-        if ((my_select[3].value != "00") && (my_select[4].value != "00") && (my_select[5].value != "0000")) {
-        my_select[6].value += "," + my_select[5].value + "-" + my_select[4].value + "-" + my_select[3].value ;
-		}
-      } else {
-	    my_select[6].value = "" ;
-      }
-	}
-	
-    function reset_date() {
-	  my_select[0].value = "00" ;
-	  my_select[3].value = "00" ;
-	  my_select[6].value = "" ;
-	}   
-// --></script>
+<script type="text/javascript" src="formulaire.js"></script>
 </head>
 
 <body>
@@ -116,7 +70,8 @@ h4
         <ul>
             <li><a title="Voir les dernières sorties sur camptocamp.org" class="action_list nav_edit" href="http://www.camptocamp.org/outings">camptocamp.org</a></li>
             <li><a title="Voir les dernières sorties sur montagneinfo.net" class="action_list nav_edit" href="http://www.montagneinfo.net/">montagneinfo.net</a></li>
-            <li><a title="Voir les dernières sorties sur Skitour" class="action_list nav_edit" href="http://www.skitour.fr/topos/dernieres-sorties.php">Skitour</a></li>
+            <li><a title="Voir les dernières sorties sur Skitour.fr" class="action_list nav_edit" href="http://www.skitour.fr/topos/dernieres-sorties.php">Skitour.fr</a></li>
+            <li><a title="Voir les dernières sorties sur Gulliver.it" class="action_list nav_edit" href="http://www.gulliver.it/2007/">Gulliver.it</a></li>
         </ul>
     </div>
     <div id="nav_tools_down"></div>
@@ -137,21 +92,21 @@ h4
     Le fil RSS peut être utilisé dans un agrégateurs RSS, ou pour alimenter un contenu dans une page web.<br />
     
     
-    <form action="http://meta.camptocamp.org/outings/query" method="get">
-      <br>
-      <i>Les choix multiples ne sont pas possibles dans ce formulaire, bien que le méta-moteur les accepte.</i><br><br>
+    <form>
+      <br />
+      <i>Avec certains navigateurs, cliquez dans les champs avec la touche CTRL enfoncée pour faire de multiples (dé)sélections.</i><br /><br />
       <table width="90%" border="0">
       <tbody><tr valign="top">
 	  <td>
       <h4><a name="activity"></a>Activités</h4>
-      <select size="16" name="activity_ids"><option value="0">Non définie</option><optgroup label="Hiver"><option value="5">Alpinisme neige, glace, mixte</option><option value="3">Cascade de glace, dry-tooling</option><option value="10">Ski, surf de montagne</option><option value="8">Raquette</option><option value="6">Ski mécanique</option><option value="11">Surf mécanique</option></optgroup><optgroup label="Eté"><option value="1">Alpinisme</option><option value="9">Escalade en montagne</option><option value="4">Escalade en falaise, bloc</option><option value="12">Via ferrata</option><option value="7">Randonnée pédestre</option><option value="2">Canyon</option><option value="13">VTT</option></select>
+      <select class="param" name="activity_ids" multiple="multiple" size="16"><option value="0">Non définie</option><optgroup label="Hiver"><option value="5">Alpinisme neige, glace, mixte</option><option value="3">Cascade de glace, dry-tooling</option><option value="10">Ski, surf de montagne</option><option value="8">Raquette</option><option value="6">Ski mécanique</option><option value="11">Surf mécanique</option></optgroup><optgroup label="Eté"><option value="1">Alpinisme</option><option value="9">Escalade en montagne</option><option value="4">Escalade en falaise, bloc</option><option value="12">Via ferrata</option><option value="7">Randonnée pédestre</option><option value="2">Canyon</option><option value="13">VTT</option></select>
       
 	  
-      <br><br>
+      <br /><br />
       <h4><a name="cname"></a>Nom de la sortie</h4>
-      <input type="text" name="outing_name" size="50">
+      <input type="text" class="param" name="outing_name" size="50">
 	  
-      <br><br>
+      <br /><br />
       <h4><a name="sdt"></a>Date de la sortie</h4>
       
       <table border="0">
@@ -173,45 +128,45 @@ h4
       <td></td>
 	  </tr>
       </tbody></table>
-      <input class="sel_date" type="hidden"  name="outing_date" size="60">
+      <input class="param sel_date" type="hidden"  name="outing_date" size="60">
 	  
-      <br>
+      <br />
       <table border="0">
       <tbody><tr>
 	  <td width="50%">
       <h4><a name="lang"></a>Langues</h4>
-	  <select name="outing_lang"><option value=""></option><option value="fr">Français</option><option value="it">Italiano</option><option value="en">English</option><option value="de">Deutsch</option><option value="ca">Catalan</option><option value="en">Español</option></select>
+	  <select class="param" name="outing_lang" multiple="multiple" size="6"><option value="fr">Français</option><option value="it">Italiano</option><option value="en">English</option><option value="de">Deutsch</option><option value="ca">Catalan</option><option value="en">Español</option></select>
 	  </td>
       <td width="50%">
       <h4><a name="system"></a>Sites partenaire</h4>
-	  <select name="system_id"><option value=""></option><option value="1">camptocamp.org (C2C)</option><option value="2">montagneinfo.net (SNGM)</option><option value="3">Skitour</option></select>
+	  <select class="param" name="system_id" multiple="multiple" size="4"><option value="1">camptocamp.org (C2C)</option><option value="2">montagneinfo.net (SNGM)</option><option value="3">Skitour.fr</option><option value="4">Gulliver.it</option></select>
 	  </td>
 	  </tr>
       </tbody></table>
 	  
-      <br>
+      <br />
       <h4><a name="order"></a>Trier les résultats</h4>
-      selon &nbsp;<select name="orderby"><option value=""></option><option value="outing_date" selected="selected">la date de la sortie</option><option value="outing_name">le nom de la sortie</option><option value="region_id">le numéro du massif</option><option value="region_name">le nom du massif</option><option value="system_id">le site partenaire</option></select>
+      selon &nbsp;<select class="param" name="orderby"><option value=""></option><option value="outing_date" selected="selected">la date de la sortie</option><option value="outing_name">le nom de la sortie</option><option value="region_id">le numéro du massif</option><option value="region_name">le nom du massif</option><option value="system_id">le site partenaire</option></select>
       &nbsp; et afficher &nbsp;
-      <select name="limit"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option><option value="25">25</option><option value="30">30</option><option value="40">40</option><option value="50" selected="selected">50</option><option value="60">60</option><option value="80">80</option><option value="100">100</option><option value="150">150</option><option value="200">200</option><option value="250">250</option><option value="300">300</option><option value="400">400</option><option value="500">500</option></select>
+      <select class="param" name="limit"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option><option value="25">25</option><option value="30">30</option><option value="40">40</option><option value="50" selected="selected">50</option><option value="60">60</option><option value="80">80</option><option value="100">100</option><option value="150">150</option><option value="200">200</option><option value="250">250</option><option value="300">300</option><option value="400">400</option><option value="500">500</option></select>
 	  &nbsp; sorties
 	  
       </td>
 	  <td>
       <h4><a name="region"></a>Massifs</h4>
-<select size="30" name="region_id"><option value=""></option><optgroup label="Alpes du S"><option value="54">Provence</option><option value="52">Préalpes Dignoises</option><option value="50">Pelat - Préalpes de Castellannes</option><option value="42">Lubéron - Céüse</option><option value="10001">Alpes Maritimes</option><option value="10002">Ligure</option><option value="43">Mercantour - Argentera</option><option value="58">Queyras S - Parpaillon - Ubaye - Oronaye</option><option value="57">Queyras N - Briançonnais - Cozie</option></optgroup><optgroup label="Alpes du N"><option value="30">Écrins</option><option value="26">Dévoluy</option><option value="75">Vercors</option><option value="68">Taillefer - Matheysine</option><option value="59">Grandes Rousses</option><option value="20">Cerces - Thabor - Mt.Cenis</option><option value="10003">Alpes Grées - Charbonnel</option><option value="74">Vanoise</option><option value="13">Belledonne</option><option value="40">Lauzière</option><option value="22">Chartreuse</option><option value="11">Bauges</option><option value="12">Beaufortain</option><option value="44">Mont Blanc</option><option value="35">Gran Paradiso</option><option value="15">Bornes - Aravis</option><option value="36">Haut Giffre - Aiguilles Rouges</option><option value="21">Chablais</option><option value="2">Alpes Vaudoises</option><option value="72">Valais W - Alpes Pennines W</option><option value="71">Valais E - Alpes Pennines E</option><option value="14">Berner Alpen</option><option value="53">Préalpes Fribourgeoises/Bernoises</option></optgroup><optgroup label="Alpes Centrales"><option value="70">Urner Alpen</option><option value="5">Alpi Ticinesi - Conches - Goms</option><option value="34">Glarner Alpen</option><option value="16">Bündner Oberland - Adula - Ticino E</option><option value="69">Toggenburg - Appenzell</option><option value="76">Vorarlberg - Allgauer Alpen</option><option value="10">Arlberg - Silvretta</option><option value="80">Zentral Graubünden</option><option value="31">Engadin - Disgrazia</option><option value="47">Orobie</option><option value="1">Adamello</option><option value="48">Ortles</option><option value="49">Ötztal</option><option value="41">Lechtaler Alpen - Wetterstein - Karwendel</option><option value="67">Stubaïer Alpen - Sarntaler Alpen</option></optgroup><optgroup label="Alpes Orientales"><option value="27">Dolomiti centrale</option><option value="28">Dolomiti occidentale</option><option value="29">Dolomiti orientale</option><option value="81">Zillertaler Alpen</option><option value="23">Chiemgauer Alpen - Kitzbühler Alpen</option><option value="55">Pustresi - Hohe Tauern</option><option value="39">Karnische Alpen</option><option value="3">Alpi Giulie</option><option value="38">Karawanken</option><option value="19">Carinthia</option><option value="46">Niedere Tauern</option><option value="25">Dachstein</option><option value="79">Wienner Alpen</option><option value="66">Steirische Alpen</option></optgroup><optgroup label="Pyrénées - Péninsule ibérique"><option value="56">Pyrénées occidentales</option><option value="32">Gavarnie Ordea</option><option value="73">Vallée d'Aure Néouvielle</option><option value="18">Capcir Corbières</option><option value="17">Cadi Puigmal Garrotxa</option><option value="51">Picos de Europa - Cantabrica</option><option value="65">Sierra Nevada - Sistema Penibico</option><option value="64">Sierra de Guadarrama</option><option value="63">Sierra de Gredos</option><option value="45">Montes Ibericos</option></optgroup><optgroup label="Europe de l'W"><option value="33">Genevois - Jura Sud</option><option value="37">Jura</option><option value="77">Vosges</option><option value="10004">Schwarz Wald</option><option value="10005">Massif Central</option><option value="61">Scotland</option><option value="78">Wales</option></optgroup><optgroup label="Méditerrannée"><option value="24">Corse</option><option value="60">Sardaigne</option><option value="62">Sicilia</option></optgroup></select>
+<select class="param" name="region_id" multiple="multiple" size="40"><optgroup label="Alpes du S"><option value="54">Provence</option><option value="52">Préalpes Dignoises</option><option value="50">Pelat - Préalpes de Castellannes</option><option value="42">Lubéron - Céüse</option><option value="10001">Alpes Maritimes</option><option value="10002">Ligure</option><option value="43">Mercantour - Argentera</option><option value="58">Queyras S - Parpaillon - Ubaye - Oronaye</option><option value="57">Queyras N - Briançonnais - Cozie</option></optgroup><optgroup label="Alpes du N"><option value="30">Écrins</option><option value="26">Dévoluy</option><option value="75">Vercors</option><option value="68">Taillefer - Matheysine</option><option value="59">Grandes Rousses</option><option value="20">Cerces - Thabor - Mt.Cenis</option><option value="10003">Alpes Grées - Charbonnel</option><option value="74">Vanoise</option><option value="13">Belledonne</option><option value="40">Lauzière</option><option value="22">Chartreuse</option><option value="11">Bauges</option><option value="12">Beaufortain</option><option value="44">Mont Blanc</option><option value="35">Gran Paradiso</option><option value="15">Bornes - Aravis</option><option value="36">Haut Giffre - Aiguilles Rouges</option><option value="21">Chablais</option><option value="2">Alpes Vaudoises</option><option value="72">Valais W - Alpes Pennines W</option><option value="71">Valais E - Alpes Pennines E</option><option value="14">Berner Alpen</option><option value="53">Préalpes Fribourgeoises/Bernoises</option></optgroup><optgroup label="Alpes Centrales"><option value="70">Urner Alpen</option><option value="5">Alpi Ticinesi - Conches - Goms</option><option value="34">Glarner Alpen</option><option value="16">Bündner Oberland - Adula - Ticino E</option><option value="69">Toggenburg - Appenzell</option><option value="76">Vorarlberg - Allgauer Alpen</option><option value="10">Arlberg - Silvretta</option><option value="80">Zentral Graubünden</option><option value="31">Engadin - Disgrazia</option><option value="47">Orobie</option><option value="1">Adamello</option><option value="48">Ortles</option><option value="49">Ötztal</option><option value="41">Lechtaler Alpen - Wetterstein - Karwendel</option><option value="67">Stubaïer Alpen - Sarntaler Alpen</option></optgroup><optgroup label="Alpes Orientales"><option value="27">Dolomiti centrale</option><option value="28">Dolomiti occidentale</option><option value="29">Dolomiti orientale</option><option value="81">Zillertaler Alpen</option><option value="23">Chiemgauer Alpen - Kitzbühler Alpen</option><option value="55">Pustresi - Hohe Tauern</option><option value="39">Karnische Alpen</option><option value="3">Alpi Giulie</option><option value="38">Karawanken</option><option value="19">Carinthia</option><option value="46">Niedere Tauern</option><option value="25">Dachstein</option><option value="79">Wienner Alpen</option><option value="66">Steirische Alpen</option></optgroup><optgroup label="Pyrénées - Péninsule ibérique"><option value="56">Pyrénées occidentales</option><option value="32">Gavarnie Ordea</option><option value="73">Vallée d'Aure Néouvielle</option><option value="18">Capcir Corbières</option><option value="17">Cadi Puigmal Garrotxa</option><option value="51">Picos de Europa - Cantabrica</option><option value="65">Sierra Nevada - Sistema Penibico</option><option value="64">Sierra de Guadarrama</option><option value="63">Sierra de Gredos</option><option value="45">Montes Ibericos</option></optgroup><optgroup label="Europe de l'W"><option value="33">Genevois - Jura Sud</option><option value="37">Jura</option><option value="77">Vosges</option><option value="10004">Schwarz Wald</option><option value="10005">Massif Central</option><option value="61">Scotland</option><option value="78">Wales</option></optgroup><optgroup label="Méditerrannée"><option value="24">Corse</option><option value="60">Sardaigne</option><option value="62">Sicilia</option></optgroup></select>
       
-	  <br><br>
+	  <br /><br />
       <h4><a name="rname"></a>Nom du massif</h4>
-      <input type="text" name="region_name" size="50">
+      <input type="text" class="param" name="region_name" size="50">
 	  </td></tr>
       </tbody></table>
-<br>
-<div class="submit">
-  <input type="submit" value="Afficher les sorties correspondant à ce filtre">
-  <br><br>
-</div>
-</form>
+	<br />
+		<div class="submit">
+			<input type="button" value="Afficher les sorties correspondant à ce filtre" onclick="return set_param();">
+			<br /><br />
+		</div>
+	</form>
 
 </div>
 </div></div>
@@ -233,10 +188,10 @@ Le contenu de cette page est disponible sous licence <a href="http://creativecom
             <a href="http://www.camptocamp.com/"><img src="http://www.camptocamp.org/static/images/c2csa.gif" alt="C2C SA" title="Camptocamp SA" /></a>
         </div>
         <div id="footer_cc_text">
-            &copy; 1997-2007
+            &copy; 1997-2008
             <a href="http://www.camptocamp.org/">camptocamp.org</a><br />
             Les informations mises à disposition sur ce site n'engagent ni leurs auteurs ni Camptocamp-Association.<br />
-            camptocamp.org version 5 révision 2347</div>
+            camptocamp.org version 5 révision 85</div>
     </div>
     <div id="footer_border_right">&nbsp;</div>
 </div>
