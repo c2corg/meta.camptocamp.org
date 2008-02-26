@@ -20,6 +20,15 @@ h4
    color: #444;
    padding-bottom: 0.3em;
 }
+.tinfo
+{
+   padding-left: 1ex;
+}
+.tinfo ul
+{
+   list-style-type: disc;
+   margin-left: 2ex;
+}
 </style>
 <script type="text/javascript" src="http://camptocamp.org/sfPrototypePlugin/js/prototype.js"></script>
 <script type="text/javascript" src="http://camptocamp.org/static/js/menus.js"></script>
@@ -95,12 +104,22 @@ h4
     <form>
       <br />
       <i>Avec certains navigateurs, cliquez dans les champs avec la touche CTRL enfoncée pour faire de multiples (dé)sélections.</i><br /><br />
-      <table width="90%" border="0">
+      <table width="100%" border="0">
       <tbody><tr valign="top">
 	  <td>
       <h4><a name="activity"></a>Activités</h4>
-      <select class="param" name="activity_ids" multiple="multiple" size="16"><option value="0">Non définie</option><optgroup label="Hiver"><option value="5">Alpinisme neige, glace, mixte</option><option value="3">Cascade de glace, dry-tooling</option><option value="10">Ski, surf de montagne</option><option value="8">Raquette</option><option value="6">Ski mécanique</option><option value="11">Surf mécanique</option></optgroup><optgroup label="Eté"><option value="1">Alpinisme</option><option value="9">Escalade en montagne</option><option value="4">Escalade en falaise, bloc</option><option value="12">Via ferrata</option><option value="7">Randonnée pédestre</option><option value="2">Canyon</option><option value="13">VTT</option></select>
-      
+      <table border="0">
+      <tbody>
+      <tr><td>
+        <select class="param" name="activity_ids" multiple="multiple" size="17"><option value="0">Non définie</option><optgroup label="Hiver"><option value="3">Cascade de glace, dry-tooling</option><option value="10">Ski, surf de montagne</option><option value="8">Raquette</option><option value="6">Ski, surf mécanique</option></optgroup><optgroup label="Eté"><option value="1">Alpinisme neige, glace, mixte</option><option value="9">Escalade en montagne</option><option value="4">Escalade en falaise, bloc</option><option value="12">Via ferrata</option><option value="7">Randonnée pédestre</option><option value="2">Canyon</option><option value="13">VTT</option><optgroup label="Non utilisée"><option value="5">Haute montagne</option><option value="11">Surf</option></select>
+      </td><td>
+	    <div class="tinfo">
+          <i>Pour l'instant, les activités ne sont pas définies de la même façon pour tous les sites partenaires&nbsp;:
+          <ul type="disc"><li>Pour <b>camptocamp.org</b>, la raquette est contenu dans </i>"Ski, surf de montagne"<i>.</li>
+          <li>Pour <b>montagneinfo.net</b>, l'alpinisme rocheux (correspondant à </i>"Escalade en montagne"<i> sur camptocamp.org) est réparti entre </i>"Alpinisme neige, glace, mixte"<i> et </i>"Escalade en montagne"<i>.</i></li></ul>
+		</div>
+	  </td></tr>
+      </tbody></table>
 	  
       <br /><br />
       <h4><a name="cname"></a>Nom de la sortie</h4>
@@ -108,16 +127,15 @@ h4
 	  
       <br /><br />
       <h4><a name="sdt"></a>Date de la sortie</h4>
-      
       <table border="0">
       <tbody>
-	  <tr><td>entre le &nbsp;</td>
+      <tr><td>entre le &nbsp;</td>
 	  <td>
       <select class="sel_date" name="sd" onchange="set_date()"><option value="00"></option><option value="01">1</option><option value="02">2</option><option value="03">3</option><option value="04">4</option><option value="05">5</option><option value="06">6</option><option value="07">7</option><option value="08">8</option><option value="09">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>
       <select class="sel_date" name="sm" onchange="set_date()"><option value="00"></option><option value="01">janvier</option><option value="02">février</option><option value="03">mars</option><option value="04">avril</option><option value="05">mai</option><option value="06">juin</option><option value="07">juillet</option><option value="08">août</option><option value="09">septembre</option><option value="10">octobre</option><option value="11">novembre</option><option value="12">décembre</option></select>
       <select class="sel_date" name="sy" onchange="set_date()"><option value="0000"></option><option value="2006">2006</option><option value="2007">2007</option><option value="2008" selected="selected">2008</option><option value="2009">2009</option><option value="2010">2010</option></select>
 	  </td>
-      <td>&nbsp; <input type="button" value="Effacer" onclick="reset_date()"></td>
+      <td>&nbsp; <input type="button" value="Effacer" title="Désélectionne les 2 dates" onclick="reset_date()"></td>
 	  </tr>
       <tr><td>et le &nbsp;</td>
 	  <td>
@@ -129,6 +147,10 @@ h4
 	  </tr>
       </tbody></table>
       <input class="param sel_date" type="hidden"  name="outing_date" size="60">
+      <br /><i>Pour qu'une date soit prise en compte, les 3 champs doivent être définie. Définir au choix :<br />
+	  - aucune date : la recherche se fera sur toutes les dates,<br />
+	  - la date de début : la recherche se fera à partir de cette date,<br />
+	  - la date de début et de fin : la recherche se fera entre ces 2 dates.</i><br />
 	  
       <br />
       <table border="0">
@@ -154,7 +176,7 @@ h4
       </td>
 	  <td>
       <h4><a name="region"></a>Massifs</h4>
-<select class="param" name="region_id" multiple="multiple" size="40"><optgroup label="Alpes du S"><option value="54">Provence</option><option value="52">Préalpes Dignoises</option><option value="50">Pelat - Préalpes de Castellannes</option><option value="42">Lubéron - Céüse</option><option value="10001">Alpes Maritimes</option><option value="10002">Ligure</option><option value="43">Mercantour - Argentera</option><option value="58">Queyras S - Parpaillon - Ubaye - Oronaye</option><option value="57">Queyras N - Briançonnais - Cozie</option></optgroup><optgroup label="Alpes du N"><option value="30">Écrins</option><option value="26">Dévoluy</option><option value="75">Vercors</option><option value="68">Taillefer - Matheysine</option><option value="59">Grandes Rousses</option><option value="20">Cerces - Thabor - Mt.Cenis</option><option value="10003">Alpes Grées - Charbonnel</option><option value="74">Vanoise</option><option value="13">Belledonne</option><option value="40">Lauzière</option><option value="22">Chartreuse</option><option value="11">Bauges</option><option value="12">Beaufortain</option><option value="44">Mont Blanc</option><option value="35">Gran Paradiso</option><option value="15">Bornes - Aravis</option><option value="36">Haut Giffre - Aiguilles Rouges</option><option value="21">Chablais</option><option value="2">Alpes Vaudoises</option><option value="72">Valais W - Alpes Pennines W</option><option value="71">Valais E - Alpes Pennines E</option><option value="14">Berner Alpen</option><option value="53">Préalpes Fribourgeoises/Bernoises</option></optgroup><optgroup label="Alpes Centrales"><option value="70">Urner Alpen</option><option value="5">Alpi Ticinesi - Conches - Goms</option><option value="34">Glarner Alpen</option><option value="16">Bündner Oberland - Adula - Ticino E</option><option value="69">Toggenburg - Appenzell</option><option value="76">Vorarlberg - Allgauer Alpen</option><option value="10">Arlberg - Silvretta</option><option value="80">Zentral Graubünden</option><option value="31">Engadin - Disgrazia</option><option value="47">Orobie</option><option value="1">Adamello</option><option value="48">Ortles</option><option value="49">Ötztal</option><option value="41">Lechtaler Alpen - Wetterstein - Karwendel</option><option value="67">Stubaïer Alpen - Sarntaler Alpen</option></optgroup><optgroup label="Alpes Orientales"><option value="27">Dolomiti centrale</option><option value="28">Dolomiti occidentale</option><option value="29">Dolomiti orientale</option><option value="81">Zillertaler Alpen</option><option value="23">Chiemgauer Alpen - Kitzbühler Alpen</option><option value="55">Pustresi - Hohe Tauern</option><option value="39">Karnische Alpen</option><option value="3">Alpi Giulie</option><option value="38">Karawanken</option><option value="19">Carinthia</option><option value="46">Niedere Tauern</option><option value="25">Dachstein</option><option value="79">Wienner Alpen</option><option value="66">Steirische Alpen</option></optgroup><optgroup label="Pyrénées - Péninsule ibérique"><option value="56">Pyrénées occidentales</option><option value="32">Gavarnie Ordea</option><option value="73">Vallée d'Aure Néouvielle</option><option value="18">Capcir Corbières</option><option value="17">Cadi Puigmal Garrotxa</option><option value="51">Picos de Europa - Cantabrica</option><option value="65">Sierra Nevada - Sistema Penibico</option><option value="64">Sierra de Guadarrama</option><option value="63">Sierra de Gredos</option><option value="45">Montes Ibericos</option></optgroup><optgroup label="Europe de l'W"><option value="33">Genevois - Jura Sud</option><option value="37">Jura</option><option value="77">Vosges</option><option value="10004">Schwarz Wald</option><option value="10005">Massif Central</option><option value="61">Scotland</option><option value="78">Wales</option></optgroup><optgroup label="Méditerrannée"><option value="24">Corse</option><option value="60">Sardaigne</option><option value="62">Sicilia</option></optgroup></select>
+<select class="param" name="region_id" multiple="multiple" size="40"><optgroup label="Alpes du S"><option value="54">Provence</option><option value="52">Préalpes Dignoises</option><option value="50">Pelat - Préalpes de Castellannes</option><option value="42">Lubéron - Céüse</option><option value="10001">Alpes Maritimes</option><option value="10002">Ligure</option><option value="43">Mercantour - Argentera</option><option value="58">Queyras S - Parpaillon - Ubaye - Oronaye</option><option value="57">Queyras N - Briançonnais - Cozie</option></optgroup><optgroup label="Alpes du N"><option value="30">Écrins</option><option value="26">Dévoluy</option><option value="75">Vercors</option><option value="68">Taillefer - Matheysine</option><option value="59">Grandes Rousses</option><option value="20">Cerces - Thabor - Mont Cenis</option><option value="10003">Alpes Grées - Charbonnel</option><option value="74">Vanoise</option><option value="13">Belledonne</option><option value="40">Lauzière</option><option value="22">Chartreuse</option><option value="11">Bauges</option><option value="12">Beaufortain</option><option value="44">Mont Blanc</option><option value="35">Gran Paradiso</option><option value="15">Bornes - Aravis</option><option value="36">Haut Giffre - Aiguilles Rouges - Fiz</option><option value="21">Chablais</option><option value="2">Alpes Vaudoises</option><option value="72">Valais W - Alpes Pennines W</option><option value="71">Valais E - Alpes Pennines E</option><option value="14">Berner Alpen</option><option value="53">Préalpes Fribourgeoises et Bernoises</option></optgroup><optgroup label="Alpes Centrales"><option value="70">Urner Alpen</option><option value="5">Alpi Ticinesi - Conches - Goms</option><option value="34">Glarner Alpen</option><option value="16">Bündner Oberland - Adula - Ticino E</option><option value="69">Toggenburg - Appenzell</option><option value="76">Vorarlberg - Allgauer Alpen</option><option value="10">Arlberg - Silvretta</option><option value="80">Zentral Graubünden</option><option value="31">Engadin - Disgrazia</option><option value="47">Orobie</option><option value="1">Adamello</option><option value="48">Ortles</option><option value="49">Ötztal</option><option value="41">Lechtaler Alpen - Wetterstein - Karwendel</option><option value="67">Stubaïer Alpen - Sarntaler Alpen</option></optgroup><optgroup label="Alpes Orientales"><option value="27">Dolomiti centrale</option><option value="28">Dolomiti occidentale</option><option value="29">Dolomiti orientale</option><option value="81">Zillertaler Alpen</option><option value="23">Chiemgauer Alpen - Kitzbühler Alpen</option><option value="55">Pustresi - Hohe Tauern</option><option value="39">Karnische Alpen</option><option value="3">Alpi Giulie</option><option value="38">Karawanken</option><option value="19">Carinthia</option><option value="46">Niedere Tauern</option><option value="25">Dachstein</option><option value="79">Wienner Alpen</option><option value="66">Steirische Alpen</option></optgroup><optgroup label="Pyrénées - Péninsule ibérique"><option value="56">Pyrénées Occidentales</option><option value="32">Gavarnie - Ordesa - Guara</option><option value="73">Aure Néouvielle - Posets Maladeta - Aigüestortes</option><option value="9">Ariège - Cardós - Andorra</option><option value="18">Capcir Corbières</option><option value="17">Pyrénées Orientales</option><option value="51">Picos de Europa - Cantabrica</option><option value="65">Sierra Nevada - Sistema Penibico</option><option value="64">Sierra de Guadarrama</option><option value="63">Sierra de Gredos</option><option value="45">Montes Ibericos</option></optgroup><optgroup label="Europe de l'W"><option value="33">Genevois - Jura S</option><option value="37">Jura</option><option value="77">Vosges</option><option value="10004">Schwarz Wald</option><option value="10005">Massif Central</option><option value="61">Scotland</option><option value="78">Wales</option></optgroup><optgroup label="Méditerrannée"><option value="24">Corse</option><option value="60">Sardaigne</option><option value="62">Sicilia</option></optgroup></select>
       
 	  <br /><br />
       <h4><a name="rname"></a>Nom du massif</h4>
