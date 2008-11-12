@@ -80,7 +80,7 @@ function set_param() {
   if (form_action.length!=0) {
     form_action = '?'+form_action;
   }
-  form_action = "http://meta.camptocamp.org/outings/query"+form_action;
+  form_action = "/outings/query"+form_action;
   document.location.href = form_action;
   return true;
 }
