@@ -4,14 +4,17 @@ all:
       1: 'c2c'
       2: 'sngm'
       3: 'skitour'
+      4: 'gulliver'
     clientnames:
       1: 'Camptocamp.org'
       2: 'MontagneInfo.net'
       3: 'Skitour.fr'
+      4: 'Gulliver.it'
     keys:
       1: ''
       2: ''
       3: ''
+      4: ''
   facing:
     values: [, 'N', 'NW', 'W', 'SW', 'S', 'SE', 'E', 'NE']
   activities:
