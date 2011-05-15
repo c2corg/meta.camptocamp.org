@@ -155,7 +155,7 @@ class outingsActions extends sfActions
                'o.region_name, o.elevation, o.activity_ids, o.rating, o.facing, o.lang, o.url ' .
                'FROM outings o ' .
                'LEFT JOIN outings_regions ore ON o.id = ore.outing_id ' .
-               'LEFT JOIN regions r ON ore.region_id = r.id AND r.system_id = 1 ';
+               'LEFT JOIN regions r ON ore.region_id = r.id AND r.system_id = \'1\' ';
                // TODO: use a parameter to return regions from an other regions system
         
         if (sizeof($conditionvalues) > 0)
