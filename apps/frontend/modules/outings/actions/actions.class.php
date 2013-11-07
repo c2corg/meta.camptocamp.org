@@ -54,22 +54,22 @@ class outingsActions extends sfActions
         // explode values to array
         foreach ($plist as $param) {
             $$param = !empty($$param) ? explode(',',$$param) : NULL;
-        }            
-
+        }
+        
         // generate where clauses, loop on $plist and $tlist
         $condition = '';
         $conditionvalues = array();
-        $p = 0;
+
+        // be sure not to retrieve outings from the future
+        $condition .= '(o.date <= ?)';
+        $conditionvalues[] = date("Y-m-d");
+
         foreach ($plist as $param) {
             // treate other params
             $s = sizeof($$param);
             if($s > 0) {
 
-                if ($p > 0) {
-                    $condition .= ' AND ';
-                }
-
-                $condition .= '(';
+                $condition .= ' AND (';
 
                 $p = 1;
 
@@ -125,7 +125,7 @@ class outingsActions extends sfActions
                             $condition .= ' OR ';
                         }
                     }
-                }else {
+                } else {
                     foreach($$param as $pvalue) {
                         // recover the correct table target for given key
                         // recover the operator for given key
