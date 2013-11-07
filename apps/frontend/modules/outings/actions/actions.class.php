@@ -532,7 +532,11 @@ class outingsActions extends sfActions
                                     $value = '{'.implode(',',$acts).'}';
                                 }
                             } else if ($column == 'elevation') {
+                                 // be sure we get an integer
                                  $value = round($outingxml->elevation);
+                            } else if ($column == 'rating') {
+                                 // cut too long ratings
+                                 $value = strlen($value) > 30 ? substr($value, 0, 30) : $value;
                             } else {
                                 $value = $outingxml->$column;
                             }

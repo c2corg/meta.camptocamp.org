@@ -16,7 +16,7 @@ class BaseOuting extends sfDoctrineRecord
     $this->hasColumn('elevation', 'integer', 4, array ());
     $this->hasColumn('date', 'timestamp', null, array (  'notnull' => true,));
     $this->hasColumn('lang', 'string', 2, array ());
-    $this->hasColumn('rating', 'string', 20, array ());
+    $this->hasColumn('rating', 'string', 30, array ());
     $this->hasColumn('facing', 'integer', 4, array ());
     $this->hasColumn('source_id', 'integer', 4, array ());
     $this->hasColumn('original_outing_id', 'string', 20, array ());
