@@ -52,10 +52,15 @@ class outingsActions extends sfActions
                  $_REQUEST['limit'] : sfConfig::get('app_maxresults');
 
         // explode values to array
+        // appart for outing_date, duplicate value wil cause an error in doctrine
         foreach ($plist as $param) {
             $$param = !empty($$param) ? explode(',',$$param) : NULL;
+
+            if ($param != 'outing_date') {
+                 $$param = array_unique($$param);
+            }
         }
-        
+
         // generate where clauses, loop on $plist and $tlist
         $condition = '';
         $conditionvalues = array();
