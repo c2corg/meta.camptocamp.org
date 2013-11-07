@@ -526,9 +526,12 @@ class outingsActions extends sfActions
                                     }
                                     $value = '{'.implode(',',$acts).'}';
                                 }
+                            } else if ($column == 'elevation') {
+                                 $value = round($outingxml->elevation);
                             } else {
                                 $value = $outingxml->$column;
                             }
+
                             if (isset($value) && !empty($value) && $value != '') {                    
                                 if ($status == 1){
                                     // update
