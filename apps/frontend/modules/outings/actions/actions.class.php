@@ -33,6 +33,9 @@ class outingsActions extends sfActions
         $this->errorLog = array();
         // parse query parameters and initiate the db query
         $this->parseQuery();
+        // set 10min cache
+        $this->getResponse()->addCacheControlHttpHeader('public, max_age=600');
+        $this->getResponse()->setHttpHeader('Pragma', '');
         // return feedback
         $this->feedback();
     }  
